@@ -10,6 +10,7 @@ namespace ApartmentFInderProject
     {
         static void Main(string[] args)
         {
+            //
         }
     }
 }
