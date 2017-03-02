@@ -1,0 +1,1554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ApartmentFinderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Apartment">
+          <Key>
+            <PropertyRef Name="ApartmentID" />
+          </Key>
+          <Property Name="ApartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+          <Property Name="Street Address" Type="varchar" MaxLength="45" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" />
+          <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FavoritedRooms">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="RoomID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="int" />
+          <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+          <Property Name="isFilled" Type="bit" Nullable="false" />
+          <Property Name="price" Type="money" />
+          <Property Name="ApartmentID" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="45" />
+          <Property Name="LastName" Type="varchar" MaxLength="45" />
+          <Property Name="Username" Type="varchar" MaxLength="45" />
+          <Property Name="Password" Type="varchar" MaxLength="45" />
+          <Property Name="Email" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ApartmentFinder.dbo.AllUsersFavoritedRooms' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllUsersFavoritedRooms">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoomID" />
+            <PropertyRef Name="isFilled" />
+            <PropertyRef Name="ApartmentID" />
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="45" />
+          <Property Name="LastName" Type="varchar" MaxLength="45" />
+          <Property Name="Username" Type="varchar" MaxLength="45" />
+          <Property Name="RoomID" Type="int" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="int" />
+          <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+          <Property Name="isFilled" Type="bit" Nullable="false" />
+          <Property Name="price" Type="money" />
+          <Property Name="ApartmentID" Type="int" Nullable="false" />
+          <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+          <Property Name="Street Address" Type="varchar" MaxLength="45" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="45" />
+          <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="45" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ApartmentFinder.dbo.ApartmentInformation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ApartmentInformation">
+          <Key>
+            <PropertyRef Name="ApartmentID" />
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="ApartmentID" Type="int" Nullable="false" />
+          <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+          <Property Name="Street Address" Type="varchar" MaxLength="45" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="45" />
+          <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="45" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RoomInformation">
+          <Key>
+            <PropertyRef Name="RoomID" />
+            <PropertyRef Name="isFilled" />
+            <PropertyRef Name="ApartmentID" />
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="RoomID" Type="int" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="int" />
+          <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+          <Property Name="isFilled" Type="bit" Nullable="false" />
+          <Property Name="price" Type="money" />
+          <Property Name="ApartmentID" Type="int" Nullable="false" />
+          <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+          <Property Name="Street Address" Type="varchar" MaxLength="45" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="45" />
+          <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="45" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <Association Name="FK_ApartmentID">
+          <End Role="Apartment" Type="Self.Apartment" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apartment">
+              <PropertyRef Name="ApartmentID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="ApartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityID">
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Apartment">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoritedRooms_RoomID">
+          <End Role="Room" Type="Self.Room" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FavoritedRooms" Type="Self.FavoritedRooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomID" />
+            </Principal>
+            <Dependent Role="FavoritedRooms">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoritedRooms_UserID">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="FavoritedRooms" Type="Self.FavoritedRooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FavoritedRooms">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateID">
+          <End Role="State" Type="Self.State" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddFavorite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="RoomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AllRoomsByCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CityName" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="AllRoomsByState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StateName" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="AllRoomsByZip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="zip_code" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="ApartmentIDFromName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AvailableRoomsByCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CityName" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="AvailableRoomsByState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StateName" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="AvailableRoomsByZip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="zip_code" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="AvailableRoomsinApartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="apartmentname" Type="varchar" Mode="In" />
+          <Parameter Name="zipcode" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="AvgRoomCostByApartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
+          <Parameter Name="apartmentname" Type="varchar" Mode="In" />
+          <Parameter Name="zipcode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AvgRoomCostByCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
+          <Parameter Name="cityID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AvgRoomCostByState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
+          <Parameter Name="StateID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AvgRoomCostByZip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
+          <Parameter Name="zip_code" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AvgRoomCostOverall" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money" />
+        <Function Name="CreateApartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="Street" Type="varchar" Mode="In" />
+          <Parameter Name="ContactEmail" Type="varchar" Mode="In" />
+          <Parameter Name="ContactPhone" Type="varchar" Mode="In" />
+          <Parameter Name="CityID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CreateCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="zipcode" Type="int" Mode="In" />
+          <Parameter Name="stateid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CreateRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NumberOfBeds" Type="varchar" Mode="In" />
+          <Parameter Name="RoomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="isFilled" Type="bit" Mode="In" />
+          <Parameter Name="price" Type="money" Mode="In" />
+          <Parameter Name="ApartmentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CreateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="firstname" Type="varchar" Mode="In" />
+          <Parameter Name="lastname" Type="varchar" Mode="In" />
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteApartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCOde" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="FavoritedRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="zipcode" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UserID" Type="int" Nullable="false" />
+                <Property Name="firstname" Type="varchar" MaxLength="45" />
+                <Property Name="LastName" Type="varchar" MaxLength="45" />
+                <Property Name="Username" Type="varchar" MaxLength="45" />
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GetCityID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="Zipcode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetRoomID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="RoomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="NumAvailableRoomsByState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="StateName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="NumAvailableRoomsByZip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="zip_code" Type="int" Mode="In" />
+        </Function>
+        <Function Name="NumAvailableRoomsInApartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="apartmentname" Type="varchar" Mode="In" />
+          <Parameter Name="zipcode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="NumRoomsInApartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="apartmentname" Type="varchar" Mode="In" />
+          <Parameter Name="zipcode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="NumRoomsInState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="Statename" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="NumRoomsInZip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="zip_code" Type="int" Mode="In" />
+        </Function>
+        <Function Name="RemoveFavorite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="RoomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="RoomsInApartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="apartmentname" Type="varchar" Mode="In" />
+          <Parameter Name="zipcode" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="StateIDFromName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="StateName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateApartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OldApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="OldZipCode" Type="varchar" Mode="In" />
+          <Parameter Name="NewApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="NewZipCode" Type="varchar" Mode="In" />
+          <Parameter Name="StreetAddress" Type="varchar" Mode="In" />
+          <Parameter Name="ContactEmail" Type="varchar" Mode="In" />
+          <Parameter Name="ContactPhone" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NumberOfBeds" Type="int" Mode="In" />
+          <Parameter Name="OldRoomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="NewRoomNumber" Type="varchar" Mode="In" />
+          <Parameter Name="IsFilled" Type="bit" Mode="In" />
+          <Parameter Name="price" Type="money" Mode="In" />
+          <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OldUserName" Type="varchar" Mode="In" />
+          <Parameter Name="NewUserName" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Firstname" Type="varchar" Mode="In" />
+          <Parameter Name="Lastname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UserFavorites" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UserID" Type="int" Nullable="false" />
+                <Property Name="firstname" Type="varchar" MaxLength="45" />
+                <Property Name="LastName" Type="varchar" MaxLength="45" />
+                <Property Name="Username" Type="varchar" MaxLength="45" />
+                <Property Name="RoomID" Type="int" Nullable="false" />
+                <Property Name="NumberOfBeds" Type="int" />
+                <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
+                <Property Name="isFilled" Type="bit" Nullable="false" />
+                <Property Name="price" Type="money" />
+                <Property Name="ApartmentID" Type="int" Nullable="false" />
+                <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
+                <Property Name="Street Address" Type="varchar" MaxLength="45" />
+                <Property Name="CityId" Type="int" Nullable="false" />
+                <Property Name="CityName" Type="varchar" MaxLength="45" />
+                <Property Name="Zip Code" Type="varchar" MaxLength="45" />
+                <Property Name="StateID" Type="int" Nullable="false" />
+                <Property Name="StateName" Type="varchar" MaxLength="45" />
+                <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
+                <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="ApartmentFinderModelStoreContainer">
+          <EntitySet Name="Apartment" EntityType="Self.Apartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FavoritedRooms" EntityType="Self.FavoritedRooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AllUsersFavoritedRooms" EntityType="Self.AllUsersFavoritedRooms" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllUsersFavoritedRooms].[UserID] AS [UserID], 
+    [AllUsersFavoritedRooms].[firstname] AS [firstname], 
+    [AllUsersFavoritedRooms].[LastName] AS [LastName], 
+    [AllUsersFavoritedRooms].[Username] AS [Username], 
+    [AllUsersFavoritedRooms].[RoomID] AS [RoomID], 
+    [AllUsersFavoritedRooms].[NumberOfBeds] AS [NumberOfBeds], 
+    [AllUsersFavoritedRooms].[RoomNumber] AS [RoomNumber], 
+    [AllUsersFavoritedRooms].[isFilled] AS [isFilled], 
+    [AllUsersFavoritedRooms].[price] AS [price], 
+    [AllUsersFavoritedRooms].[ApartmentID] AS [ApartmentID], 
+    [AllUsersFavoritedRooms].[ApartmentName] AS [ApartmentName], 
+    [AllUsersFavoritedRooms].[Street Address] AS [Street Address], 
+    [AllUsersFavoritedRooms].[CityId] AS [CityId], 
+    [AllUsersFavoritedRooms].[CityName] AS [CityName], 
+    [AllUsersFavoritedRooms].[Zip Code] AS [Zip Code], 
+    [AllUsersFavoritedRooms].[StateID] AS [StateID], 
+    [AllUsersFavoritedRooms].[StateName] AS [StateName], 
+    [AllUsersFavoritedRooms].[ContactEmail] AS [ContactEmail], 
+    [AllUsersFavoritedRooms].[ContactPhone] AS [ContactPhone]
+    FROM [dbo].[AllUsersFavoritedRooms] AS [AllUsersFavoritedRooms]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ApartmentInformation" EntityType="Self.ApartmentInformation" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ApartmentInformation].[ApartmentID] AS [ApartmentID], 
+    [ApartmentInformation].[ApartmentName] AS [ApartmentName], 
+    [ApartmentInformation].[Street Address] AS [Street Address], 
+    [ApartmentInformation].[CityId] AS [CityId], 
+    [ApartmentInformation].[CityName] AS [CityName], 
+    [ApartmentInformation].[Zip Code] AS [Zip Code], 
+    [ApartmentInformation].[StateID] AS [StateID], 
+    [ApartmentInformation].[StateName] AS [StateName], 
+    [ApartmentInformation].[ContactEmail] AS [ContactEmail], 
+    [ApartmentInformation].[ContactPhone] AS [ContactPhone]
+    FROM [dbo].[ApartmentInformation] AS [ApartmentInformation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RoomInformation" EntityType="Self.RoomInformation" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RoomInformation].[RoomID] AS [RoomID], 
+    [RoomInformation].[NumberOfBeds] AS [NumberOfBeds], 
+    [RoomInformation].[RoomNumber] AS [RoomNumber], 
+    [RoomInformation].[isFilled] AS [isFilled], 
+    [RoomInformation].[price] AS [price], 
+    [RoomInformation].[ApartmentID] AS [ApartmentID], 
+    [RoomInformation].[ApartmentName] AS [ApartmentName], 
+    [RoomInformation].[Street Address] AS [Street Address], 
+    [RoomInformation].[CityId] AS [CityId], 
+    [RoomInformation].[CityName] AS [CityName], 
+    [RoomInformation].[Zip Code] AS [Zip Code], 
+    [RoomInformation].[StateID] AS [StateID], 
+    [RoomInformation].[StateName] AS [StateName], 
+    [RoomInformation].[ContactEmail] AS [ContactEmail], 
+    [RoomInformation].[ContactPhone] AS [ContactPhone]
+    FROM [dbo].[RoomInformation] AS [RoomInformation]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ApartmentID" Association="Self.FK_ApartmentID">
+            <End Role="Apartment" EntitySet="Apartment" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityID" Association="Self.FK_CityID">
+            <End Role="City" EntitySet="City" />
+            <End Role="Apartment" EntitySet="Apartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoritedRooms_RoomID" Association="Self.FK_FavoritedRooms_RoomID">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="FavoritedRooms" EntitySet="FavoritedRooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoritedRooms_UserID" Association="Self.FK_FavoritedRooms_UserID">
+            <End Role="User" EntitySet="User" />
+            <End Role="FavoritedRooms" EntitySet="FavoritedRooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateID" Association="Self.FK_StateID">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ApartmentFinderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="AllRoomsByCity_Result">
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="AllRoomsByState_Result">
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="AllRoomsByZip_Result">
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="AvailableRoomsByCity_Result">
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="AvailableRoomsByState_Result">
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="AvailableRoomsByZip_Result">
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="AvailableRoomsinApartment_Result">
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="FavoritedRoom_Result">
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="RoomsInApartment_Result">
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="UserFavorites_Result">
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <EntityType Name="Apartment">
+          <Key>
+            <PropertyRef Name="ApartmentID" />
+          </Key>
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK_ApartmentID" FromRole="Apartment" ToRole="Room" />
+          <NavigationProperty Name="City" Relationship="Self.FK_CityID" FromRole="Apartment" ToRole="City" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Apartments" Relationship="Self.FK_CityID" FromRole="City" ToRole="Apartment" />
+          <NavigationProperty Name="State" Relationship="Self.FK_StateID" FromRole="City" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Apartment" Relationship="Self.FK_ApartmentID" FromRole="Room" ToRole="Apartment" />
+          <NavigationProperty Name="Users" Relationship="Self.FavoritedRooms" FromRole="Room" ToRole="User" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_StateID" FromRole="State" ToRole="City" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FavoritedRooms" FromRole="User" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="AllUsersFavoritedRoom">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoomID" />
+            <PropertyRef Name="isFilled" />
+            <PropertyRef Name="ApartmentID" />
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ApartmentInformation">
+          <Key>
+            <PropertyRef Name="ApartmentID" />
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RoomInformation">
+          <Key>
+            <PropertyRef Name="RoomID" />
+            <PropertyRef Name="isFilled" />
+            <PropertyRef Name="ApartmentID" />
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfBeds" Type="Int32" />
+          <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="isFilled" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+          <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_ApartmentID">
+          <End Role="Apartment" Type="Self.Apartment" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apartment">
+              <PropertyRef Name="ApartmentID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="ApartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityID">
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Apartment">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateID">
+          <End Role="State" Type="Self.State" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FavoritedRooms">
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ApartmentFinderEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Apartments" EntityType="Self.Apartment" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="AllUsersFavoritedRooms" EntityType="Self.AllUsersFavoritedRoom" />
+          <EntitySet Name="ApartmentInformations" EntityType="Self.ApartmentInformation" />
+          <EntitySet Name="RoomInformations" EntityType="Self.RoomInformation" />
+          <AssociationSet Name="FK_ApartmentID" Association="Self.FK_ApartmentID">
+            <End Role="Apartment" EntitySet="Apartments" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityID" Association="Self.FK_CityID">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Apartment" EntitySet="Apartments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateID" Association="Self.FK_StateID">
+            <End Role="State" EntitySet="States" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FavoritedRooms" Association="Self.FavoritedRooms">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <FunctionImport Name="AllRoomsByCity" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.AllRoomsByCity_Result)">
+            <Parameter Name="CityName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AllRoomsByState" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.AllRoomsByState_Result)">
+            <Parameter Name="StateName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AllRoomsByZip" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.AllRoomsByZip_Result)">
+            <Parameter Name="zip_code" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AvailableRoomsByCity" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.AvailableRoomsByCity_Result)">
+            <Parameter Name="CityName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AvailableRoomsByState" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.AvailableRoomsByState_Result)">
+            <Parameter Name="StateName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AvailableRoomsByZip" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.AvailableRoomsByZip_Result)">
+            <Parameter Name="zip_code" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AvailableRoomsinApartment" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.AvailableRoomsinApartment_Result)">
+            <Parameter Name="apartmentname" Mode="In" Type="String" />
+            <Parameter Name="zipcode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FavoritedRoom" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.FavoritedRoom_Result)">
+            <Parameter Name="RoomNumber" Mode="In" Type="String" />
+            <Parameter Name="ApartmentName" Mode="In" Type="String" />
+            <Parameter Name="zipcode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RoomsInApartment" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.RoomsInApartment_Result)">
+            <Parameter Name="apartmentname" Mode="In" Type="String" />
+            <Parameter Name="zipcode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UserFavorites" IsComposable="true" ReturnType="Collection(ApartmentFinderModel.UserFavorites_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddFavorite">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="RoomNumber" Mode="In" Type="String" />
+            <Parameter Name="ApartmentName" Mode="In" Type="String" />
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CreateApartment">
+            <Parameter Name="ApartmentName" Mode="In" Type="String" />
+            <Parameter Name="Street" Mode="In" Type="String" />
+            <Parameter Name="ContactEmail" Mode="In" Type="String" />
+            <Parameter Name="ContactPhone" Mode="In" Type="String" />
+            <Parameter Name="CityID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CreateCity">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="zipcode" Mode="In" Type="Int32" />
+            <Parameter Name="stateid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CreateRoom">
+            <Parameter Name="NumberOfBeds" Mode="In" Type="String" />
+            <Parameter Name="RoomNumber" Mode="In" Type="String" />
+            <Parameter Name="isFilled" Mode="In" Type="Boolean" />
+            <Parameter Name="price" Mode="In" Type="Decimal" />
+            <Parameter Name="ApartmentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CreateUser">
+            <Parameter Name="firstname" Mode="In" Type="String" />
+            <Parameter Name="lastname" Mode="In" Type="String" />
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteApartment">
+            <Parameter Name="ApartmentName" Mode="In" Type="String" />
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteRoom">
+            <Parameter Name="RoomNumber" Mode="In" Type="String" />
+            <Parameter Name="ApartmentName" Mode="In" Type="String" />
+            <Parameter Name="ZipCOde" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteUser">
+            <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RemoveFavorite">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="RoomNumber" Mode="In" Type="String" />
+            <Parameter Name="ApartmentName" Mode="In" Type="String" />
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateApartment">
+            <Parameter Name="OldApartmentName" Mode="In" Type="String" />
+            <Parameter Name="OldZipCode" Mode="In" Type="String" />
+            <Parameter Name="NewApartmentName" Mode="In" Type="String" />
+            <Parameter Name="NewZipCode" Mode="In" Type="String" />
+            <Parameter Name="StreetAddress" Mode="In" Type="String" />
+            <Parameter Name="ContactEmail" Mode="In" Type="String" />
+            <Parameter Name="ContactPhone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateRoom">
+            <Parameter Name="NumberOfBeds" Mode="In" Type="Int32" />
+            <Parameter Name="OldRoomNumber" Mode="In" Type="String" />
+            <Parameter Name="NewRoomNumber" Mode="In" Type="String" />
+            <Parameter Name="IsFilled" Mode="In" Type="Boolean" />
+            <Parameter Name="price" Mode="In" Type="Decimal" />
+            <Parameter Name="ApartmentName" Mode="In" Type="String" />
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateUser">
+            <Parameter Name="OldUserName" Mode="In" Type="String" />
+            <Parameter Name="NewUserName" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Firstname" Mode="In" Type="String" />
+            <Parameter Name="Lastname" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApartmentFinderModelStoreContainer" CdmEntityContainer="ApartmentFinderEntities">
+          <EntitySetMapping Name="Apartments">
+            <EntityTypeMapping TypeName="ApartmentFinderModel.Apartment">
+              <MappingFragment StoreEntitySet="Apartment">
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="ApartmentFinderModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="ApartmentFinderModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="ApartmentFinderModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ApartmentFinderModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllUsersFavoritedRooms">
+            <EntityTypeMapping TypeName="ApartmentFinderModel.AllUsersFavoritedRoom">
+              <MappingFragment StoreEntitySet="AllUsersFavoritedRooms">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApartmentInformations">
+            <EntityTypeMapping TypeName="ApartmentFinderModel.ApartmentInformation">
+              <MappingFragment StoreEntitySet="ApartmentInformation">
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoomInformations">
+            <EntityTypeMapping TypeName="ApartmentFinderModel.RoomInformation">
+              <MappingFragment StoreEntitySet="RoomInformation">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FavoritedRooms" TypeName="ApartmentFinderModel.FavoritedRooms" StoreEntitySet="FavoritedRooms">
+            <EndProperty Name="Room">
+              <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="UserID" ColumnName="UserID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.AllRoomsByCity" FunctionImportName="AllRoomsByCity">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.AllRoomsByCity_Result">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.AllRoomsByState" FunctionImportName="AllRoomsByState">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.AllRoomsByState_Result">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.AllRoomsByZip" FunctionImportName="AllRoomsByZip">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.AllRoomsByZip_Result">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.AvailableRoomsByCity" FunctionImportName="AvailableRoomsByCity">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.AvailableRoomsByCity_Result">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.AvailableRoomsByState" FunctionImportName="AvailableRoomsByState">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.AvailableRoomsByState_Result">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.AvailableRoomsByZip" FunctionImportName="AvailableRoomsByZip">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.AvailableRoomsByZip_Result">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.AvailableRoomsinApartment" FunctionImportName="AvailableRoomsinApartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.AvailableRoomsinApartment_Result">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.FavoritedRoom" FunctionImportName="FavoritedRoom">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.FavoritedRoom_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.RoomsInApartment" FunctionImportName="RoomsInApartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.RoomsInApartment_Result">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="ApartmentFinderModel.Store.UserFavorites" FunctionImportName="UserFavorites">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ApartmentFinderModel.UserFavorites_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="isFilled" ColumnName="isFilled" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
+                <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
+                <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AddFavorite" FunctionName="ApartmentFinderModel.Store.AddFavorite" />
+          <FunctionImportMapping FunctionImportName="CreateApartment" FunctionName="ApartmentFinderModel.Store.CreateApartment" />
+          <FunctionImportMapping FunctionImportName="CreateCity" FunctionName="ApartmentFinderModel.Store.CreateCity" />
+          <FunctionImportMapping FunctionImportName="CreateRoom" FunctionName="ApartmentFinderModel.Store.CreateRoom" />
+          <FunctionImportMapping FunctionImportName="CreateUser" FunctionName="ApartmentFinderModel.Store.CreateUser" />
+          <FunctionImportMapping FunctionImportName="DeleteApartment" FunctionName="ApartmentFinderModel.Store.DeleteApartment" />
+          <FunctionImportMapping FunctionImportName="DeleteRoom" FunctionName="ApartmentFinderModel.Store.DeleteRoom" />
+          <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="ApartmentFinderModel.Store.DeleteUser" />
+          <FunctionImportMapping FunctionImportName="RemoveFavorite" FunctionName="ApartmentFinderModel.Store.RemoveFavorite" />
+          <FunctionImportMapping FunctionImportName="UpdateApartment" FunctionName="ApartmentFinderModel.Store.UpdateApartment" />
+          <FunctionImportMapping FunctionImportName="UpdateRoom" FunctionName="ApartmentFinderModel.Store.UpdateRoom" />
+          <FunctionImportMapping FunctionImportName="UpdateUser" FunctionName="ApartmentFinderModel.Store.UpdateUser" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
