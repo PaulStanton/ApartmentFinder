@@ -8,6 +8,6 @@ namespace ApartmentFinderDAL
 {
     public class Class1
     {
-        ///;lkjh;lkhjkllll
+        ///;lkjh;lkhjklllldfasdfasdf
     }
 }
