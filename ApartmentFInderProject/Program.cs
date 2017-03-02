@@ -10,7 +10,7 @@ namespace ApartmentFInderProject
     {
         static void Main(string[] args)
         {
-            ////
+            int i = 0;
         }
     }
 }
