@@ -56,104 +56,102 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllRoomsByCity_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="AllRoomsByState_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="AllRoomsByZip_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="AllUsersFavoritedRoom.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="Apartment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApartmentFinder.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApartmentFinder.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApartmentFinder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApartmentFinder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApartmentFinder.edmx</DependentUpon>
     </Compile>
     <Compile Include="ApartmentInformation.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="AvailableRoomsByCity_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="AvailableRoomsByState_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="AvailableRoomsByZip_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="AvailableRoomsinApartment_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="City.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="FavoritedRoom_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="RoomInformation.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="RoomsInApartment_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="State.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
     <Compile Include="UserFavorites_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="ApartmentFinder.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>ApartmentFinder.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="ApartmentFinder.edmx.diagram">
+      <DependentUpon>ApartmentFinder.edmx</DependentUpon>
     </None>
+    <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="ApartmentFinder.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ApartmentFinder.edmx</DependentUpon>
+      <LastGenOutput>ApartmentFinder.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ApartmentFinder.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ApartmentFinder.edmx</DependentUpon>
+      <LastGenOutput>ApartmentFinder.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
