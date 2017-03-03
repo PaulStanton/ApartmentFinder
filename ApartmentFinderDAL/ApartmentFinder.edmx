@@ -16,6 +16,7 @@
           <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
           <Property Name="CityID" Type="int" />
           <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Picture" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -46,6 +47,7 @@
           <Property Name="price" Type="money" />
           <Property Name="ApartmentID" Type="int" />
           <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Picture" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -85,6 +87,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.AllUsersFavoritedRooms' does n
           <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
           <Property Name="isFilled" Type="bit" Nullable="false" />
           <Property Name="price" Type="money" />
+          <Property Name="Picture" Type="varchar" MaxLength="100" />
           <Property Name="ApartmentID" Type="int" Nullable="false" />
           <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
           <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -95,6 +98,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.AllUsersFavoritedRooms' does n
           <Property Name="StateName" Type="varchar" MaxLength="45" />
           <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
           <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+          <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ApartmentFinder.dbo.ApartmentInformation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -114,6 +118,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.ApartmentInformation' does not
           <Property Name="StateName" Type="varchar" MaxLength="45" />
           <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
           <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+          <Property Name="Picture" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -130,6 +135,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
           <Property Name="isFilled" Type="bit" Nullable="false" />
           <Property Name="price" Type="money" />
+          <Property Name="Picture" Type="varchar" MaxLength="100" />
           <Property Name="ApartmentID" Type="int" Nullable="false" />
           <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
           <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -140,6 +146,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="varchar" MaxLength="45" />
           <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
           <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+          <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK_ApartmentID">
           <End Role="Apartment" Type="Self.Apartment" Multiplicity="0..1">
@@ -225,6 +232,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -235,6 +243,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -249,6 +258,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -259,6 +269,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -273,6 +284,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -283,6 +295,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -301,6 +314,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -311,6 +325,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -325,6 +340,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -335,6 +351,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -349,6 +366,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -359,6 +377,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -374,6 +393,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -384,6 +404,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -408,6 +429,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Parameter Name="ContactEmail" Type="varchar" Mode="In" />
           <Parameter Name="ContactPhone" Type="varchar" Mode="In" />
           <Parameter Name="CityID" Type="int" Mode="In" />
+          <Parameter Name="Picture" Type="varchar" Mode="In" />
         </Function>
         <Function Name="CreateCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="name" Type="varchar" Mode="In" />
@@ -420,6 +442,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Parameter Name="isFilled" Type="bit" Mode="In" />
           <Parameter Name="price" Type="money" Mode="In" />
           <Parameter Name="ApartmentID" Type="int" Mode="In" />
+          <Parameter Name="RoomPic" Type="varchar" Mode="In" />
         </Function>
         <Function Name="CreateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="firstname" Type="varchar" Mode="In" />
@@ -456,6 +479,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -466,6 +490,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -515,6 +540,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -525,6 +551,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -540,6 +567,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Parameter Name="StreetAddress" Type="varchar" Mode="In" />
           <Parameter Name="ContactEmail" Type="varchar" Mode="In" />
           <Parameter Name="ContactPhone" Type="varchar" Mode="In" />
+          <Parameter Name="ApartmentPicture" Type="varchar" Mode="In" />
         </Function>
         <Function Name="UpdateRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NumberOfBeds" Type="int" Mode="In" />
@@ -549,6 +577,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Parameter Name="price" Type="money" Mode="In" />
           <Parameter Name="ApartmentName" Type="varchar" Mode="In" />
           <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+          <Parameter Name="RoomPicture" Type="varchar" Mode="In" />
         </Function>
         <Function Name="UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OldUserName" Type="varchar" Mode="In" />
@@ -572,6 +601,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="RoomNumber" Type="varchar" MaxLength="45" />
                 <Property Name="isFilled" Type="bit" Nullable="false" />
                 <Property Name="price" Type="money" />
+                <Property Name="Picture" Type="varchar" MaxLength="100" />
                 <Property Name="ApartmentID" Type="int" Nullable="false" />
                 <Property Name="ApartmentName" Type="varchar" MaxLength="45" />
                 <Property Name="Street Address" Type="varchar" MaxLength="45" />
@@ -582,6 +612,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <Property Name="StateName" Type="varchar" MaxLength="45" />
                 <Property Name="ContactEmail" Type="varchar" MaxLength="45" />
                 <Property Name="ContactPhone" Type="varchar" MaxLength="45" />
+                <Property Name="ApartmentPicture" Type="varchar" MaxLength="100" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -604,6 +635,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
     [AllUsersFavoritedRooms].[RoomNumber] AS [RoomNumber], 
     [AllUsersFavoritedRooms].[isFilled] AS [isFilled], 
     [AllUsersFavoritedRooms].[price] AS [price], 
+    [AllUsersFavoritedRooms].[Picture] AS [Picture], 
     [AllUsersFavoritedRooms].[ApartmentID] AS [ApartmentID], 
     [AllUsersFavoritedRooms].[ApartmentName] AS [ApartmentName], 
     [AllUsersFavoritedRooms].[Street Address] AS [Street Address], 
@@ -613,7 +645,8 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
     [AllUsersFavoritedRooms].[StateID] AS [StateID], 
     [AllUsersFavoritedRooms].[StateName] AS [StateName], 
     [AllUsersFavoritedRooms].[ContactEmail] AS [ContactEmail], 
-    [AllUsersFavoritedRooms].[ContactPhone] AS [ContactPhone]
+    [AllUsersFavoritedRooms].[ContactPhone] AS [ContactPhone], 
+    [AllUsersFavoritedRooms].[ApartmentPicture] AS [ApartmentPicture]
     FROM [dbo].[AllUsersFavoritedRooms] AS [AllUsersFavoritedRooms]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ApartmentInformation" EntityType="Self.ApartmentInformation" store:Type="Views" store:Schema="dbo">
@@ -627,7 +660,8 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
     [ApartmentInformation].[StateID] AS [StateID], 
     [ApartmentInformation].[StateName] AS [StateName], 
     [ApartmentInformation].[ContactEmail] AS [ContactEmail], 
-    [ApartmentInformation].[ContactPhone] AS [ContactPhone]
+    [ApartmentInformation].[ContactPhone] AS [ContactPhone], 
+    [ApartmentInformation].[Picture] AS [Picture]
     FROM [dbo].[ApartmentInformation] AS [ApartmentInformation]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="RoomInformation" EntityType="Self.RoomInformation" store:Type="Views" store:Schema="dbo">
@@ -637,6 +671,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
     [RoomInformation].[RoomNumber] AS [RoomNumber], 
     [RoomInformation].[isFilled] AS [isFilled], 
     [RoomInformation].[price] AS [price], 
+    [RoomInformation].[Picture] AS [Picture], 
     [RoomInformation].[ApartmentID] AS [ApartmentID], 
     [RoomInformation].[ApartmentName] AS [ApartmentName], 
     [RoomInformation].[Street Address] AS [Street Address], 
@@ -646,7 +681,8 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
     [RoomInformation].[StateID] AS [StateID], 
     [RoomInformation].[StateName] AS [StateName], 
     [RoomInformation].[ContactEmail] AS [ContactEmail], 
-    [RoomInformation].[ContactPhone] AS [ContactPhone]
+    [RoomInformation].[ContactPhone] AS [ContactPhone], 
+    [RoomInformation].[ApartmentPicture] AS [ApartmentPicture]
     FROM [dbo].[RoomInformation] AS [RoomInformation]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_ApartmentID" Association="Self.FK_ApartmentID">
@@ -681,6 +717,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -691,6 +728,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <ComplexType Name="AllRoomsByState_Result">
           <Property Name="RoomID" Type="Int32" Nullable="false" />
@@ -698,6 +736,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -708,6 +747,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <ComplexType Name="AllRoomsByZip_Result">
           <Property Name="RoomID" Type="Int32" Nullable="false" />
@@ -715,6 +755,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -725,6 +766,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <ComplexType Name="AvailableRoomsByCity_Result">
           <Property Name="RoomID" Type="Int32" Nullable="false" />
@@ -732,6 +774,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -742,6 +785,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <ComplexType Name="AvailableRoomsByState_Result">
           <Property Name="RoomID" Type="Int32" Nullable="false" />
@@ -749,6 +793,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -759,6 +804,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <ComplexType Name="AvailableRoomsByZip_Result">
           <Property Name="RoomID" Type="Int32" Nullable="false" />
@@ -766,6 +812,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -776,6 +823,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <ComplexType Name="AvailableRoomsinApartment_Result">
           <Property Name="RoomID" Type="Int32" Nullable="false" />
@@ -783,6 +831,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -793,6 +842,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <ComplexType Name="FavoritedRoom_Result">
           <Property Name="UserID" Type="Int32" Nullable="false" />
@@ -804,6 +854,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -814,6 +865,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <ComplexType Name="RoomsInApartment_Result">
           <Property Name="RoomID" Type="Int32" Nullable="false" />
@@ -821,6 +873,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -831,6 +884,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <ComplexType Name="UserFavorites_Result">
           <Property Name="UserID" Type="Int32" Nullable="false" />
@@ -842,6 +896,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -852,6 +907,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </ComplexType>
         <EntityType Name="Apartment">
           <Key>
@@ -864,6 +920,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="CityID" Type="Int32" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Rooms" Relationship="Self.FK_ApartmentID" FromRole="Apartment" ToRole="Room" />
           <NavigationProperty Name="City" Relationship="Self.FK_CityID" FromRole="Apartment" ToRole="City" />
         </EntityType>
@@ -890,6 +947,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="ApartmentID" Type="Int32" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Apartment" Relationship="Self.FK_ApartmentID" FromRole="Room" ToRole="Apartment" />
           <NavigationProperty Name="Users" Relationship="Self.FavoritedRooms" FromRole="Room" ToRole="User" />
         </EntityType>
@@ -931,6 +989,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -941,6 +1000,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ApartmentInformation">
           <Key>
@@ -958,6 +1018,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="RoomInformation">
           <Key>
@@ -972,6 +1033,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="RoomNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="isFilled" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApartmentID" Type="Int32" Nullable="false" />
           <Property Name="ApartmentName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Street_Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -982,6 +1044,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
           <Property Name="StateName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ContactPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ApartmentPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_ApartmentID">
           <End Role="Apartment" Type="Self.Apartment" Multiplicity="0..1">
@@ -1100,6 +1163,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
             <Parameter Name="ContactEmail" Mode="In" Type="String" />
             <Parameter Name="ContactPhone" Mode="In" Type="String" />
             <Parameter Name="CityID" Mode="In" Type="Int32" />
+            <Parameter Name="Picture" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreateCity">
             <Parameter Name="name" Mode="In" Type="String" />
@@ -1112,6 +1176,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
             <Parameter Name="isFilled" Mode="In" Type="Boolean" />
             <Parameter Name="price" Mode="In" Type="Decimal" />
             <Parameter Name="ApartmentID" Mode="In" Type="Int32" />
+            <Parameter Name="RoomPic" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreateUser">
             <Parameter Name="firstname" Mode="In" Type="String" />
@@ -1146,6 +1211,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
             <Parameter Name="StreetAddress" Mode="In" Type="String" />
             <Parameter Name="ContactEmail" Mode="In" Type="String" />
             <Parameter Name="ContactPhone" Mode="In" Type="String" />
+            <Parameter Name="ApartmentPicture" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UpdateRoom">
             <Parameter Name="NumberOfBeds" Mode="In" Type="Int32" />
@@ -1155,6 +1221,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
             <Parameter Name="price" Mode="In" Type="Decimal" />
             <Parameter Name="ApartmentName" Mode="In" Type="String" />
             <Parameter Name="ZipCode" Mode="In" Type="String" />
+            <Parameter Name="RoomPicture" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UpdateUser">
             <Parameter Name="OldUserName" Mode="In" Type="String" />
@@ -1181,6 +1248,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1205,6 +1273,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1240,6 +1309,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1250,6 +1320,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1266,6 +1337,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1277,6 +1349,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1287,6 +1360,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1306,6 +1380,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1316,6 +1391,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1327,6 +1403,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1337,6 +1414,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1348,6 +1426,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1358,6 +1437,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1369,6 +1449,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1379,6 +1460,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1390,6 +1472,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1400,6 +1483,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1411,6 +1495,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1421,6 +1506,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1432,6 +1518,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1442,6 +1529,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1457,6 +1545,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1467,6 +1556,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1478,6 +1568,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1488,6 +1579,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1503,6 +1595,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
                 <ScalarProperty Name="isFilled" ColumnName="isFilled" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="ApartmentID" ColumnName="ApartmentID" />
                 <ScalarProperty Name="ApartmentName" ColumnName="ApartmentName" />
                 <ScalarProperty Name="Street_Address" ColumnName="Street Address" />
@@ -1513,6 +1606,7 @@ warning 6002: The table/view 'ApartmentFinder.dbo.RoomInformation' does not have
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ApartmentPicture" ColumnName="ApartmentPicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

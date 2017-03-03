@@ -27,6 +27,7 @@ namespace ApartmentFinderDAL
         public Nullable<decimal> price { get; set; }
         public Nullable<int> ApartmentID { get; set; }
         public bool Active { get; set; }
+        public string Picture { get; set; }
     
         public virtual Apartment Apartment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

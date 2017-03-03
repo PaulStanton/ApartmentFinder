@@ -18,6 +18,7 @@ namespace ApartmentFinderDAL
         public string RoomNumber { get; set; }
         public bool isFilled { get; set; }
         public Nullable<decimal> price { get; set; }
+        public string Picture { get; set; }
         public int ApartmentID { get; set; }
         public string ApartmentName { get; set; }
         public string Street_Address { get; set; }
@@ -28,5 +29,6 @@ namespace ApartmentFinderDAL
         public string StateName { get; set; }
         public string ContactEmail { get; set; }
         public string ContactPhone { get; set; }
+        public string ApartmentPicture { get; set; }
     }
 }

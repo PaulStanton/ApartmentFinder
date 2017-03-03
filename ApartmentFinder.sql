@@ -9,6 +9,7 @@ Create Table[Apartment](
 [ContactEmail] varchar(45),
 [ContactPhone] varchar(45),
 [CityID] int,
+[Picture] varchar(100),
 [Active] bit Not Null Default(1)
 CONSTRAINT PK_ApartmentID Primary Key Clustered (ApartmentID)
 CONSTRAINT FK_CityID Foreign Key (CityID) REFERENCES [City](CityID)
@@ -23,12 +24,14 @@ Create Table[Room](
 [isFilled] bit Not Null Default(0),
 [price] money,
 [ApartmentID] int,
+[Picture] varchar(100),
 [Active] bit Not Null Default(1)
 CONSTRAINT PK_RoomID Primary Key Clustered ([RoomID])
 CONSTRAINT FK_ApartmentID Foreign Key (ApartmentID) REFERENCES [Apartment](ApartmentID)
     ON DELETE CASCADE    
     ON UPDATE CASCADE 
 )
+Select* From Room
 go
 Create Table[City](
 [CityID] int IDENTITY(1,1) NOT NULL,
@@ -71,10 +74,10 @@ CONSTRAINT FK_FavoritedRooms_RoomID Foreign Key ([ROomID]) REFERENCES [Room]([Ro
     ON UPDATE CASCADE 
 )
 go
-
+Select * From Room
 CREATE VIEW [AllUsersFavoritedRooms] AS
-Select [User].UserID,[user].[firstname],[User].[LastName],[user].[Username],Room.RoomID,[Room].NumberOfBeds,[Room].RoomNumber,[Room].isFilled,[Room].price,[Apartment].ApartmentID,[Apartment].ApartmentName,[Apartment].[Street Address],[City].CityId,[city].[name] as 'CityName',
-[City].[Zip Code],[State].StateID,[State].StateName,[Apartment].ContactEmail,[Apartment].ContactPhone
+Select [User].UserID,[user].[firstname],[User].[LastName],[user].[Username],Room.RoomID,[Room].NumberOfBeds,[Room].RoomNumber,[Room].isFilled,[Room].price,[Room].[Picture],[Apartment].ApartmentID,[Apartment].ApartmentName,[Apartment].[Street Address],[City].CityId,[city].[name] as 'CityName',
+[City].[Zip Code],[State].StateID,[State].StateName,[Apartment].ContactEmail,[Apartment].ContactPhone,[Apartment].Picture AS [ApartmentPicture]
 From [FavoritedRooms]
 inner join [User] on [User].UserID = [FavoritedRooms].UserID
 inner join [room] on [room].RoomID = [FavoritedRooms].RoomID
@@ -82,19 +85,19 @@ inner join [Apartment] on [Apartment].ApartmentID = [Room].ApartmentID
 inner join [City] on [Apartment].CityID = [City].CityID
 inner join [State] on [City].StateID = [State].StateID
 Select * From AllUsersFavoritedRooms
+Drop View [AllUsersFavoritedRooms]
 
 CREATE VIEW [ApartmentInformation] AS
 Select [Apartment].ApartmentID,[Apartment].ApartmentName,[Apartment].[Street Address],[City].CityId,[city].[name] as 'CityName',
-[City].[Zip Code],[State].StateID,[State].StateName,[Apartment].ContactEmail,[Apartment].ContactPhone From [Apartment]
+[City].[Zip Code],[State].StateID,[State].StateName,[Apartment].ContactEmail,[Apartment].ContactPhone,[Apartment].Picture From [Apartment]
 inner join [city] on [City].CityID = [Apartment].CityID
 inner join [State] on [State].StateID = City.StateID
-
+Drop View [ApartmentInformation]
 Create View [RoomInformation] AS
-Select [Room].RoomID,[Room].NumberOfBeds,[Room].RoomNumber,[Room].isFilled,[Room].price, [ApartmentInformation].ApartmentID,[ApartmentInformation].ApartmentName,[ApartmentInformation].[Street Address],[ApartmentInformation].CityId,[ApartmentInformation].[CityName],
-[ApartmentInformation].[Zip Code],[ApartmentInformation].StateID,[ApartmentInformation].StateName,[ApartmentInformation].ContactEmail,[ApartmentInformation].ContactPhone From [Room]
+Select [Room].RoomID,[Room].NumberOfBeds,[Room].RoomNumber,[Room].isFilled,[Room].price,[Room].Picture, [ApartmentInformation].ApartmentID,[ApartmentInformation].ApartmentName,[ApartmentInformation].[Street Address],[ApartmentInformation].CityId,[ApartmentInformation].[CityName],
+[ApartmentInformation].[Zip Code],[ApartmentInformation].StateID,[ApartmentInformation].StateName,[ApartmentInformation].ContactEmail,[ApartmentInformation].ContactPhone,[ApartmentInformation].Picture as 'ApartmentPicture' From [Room]
 inner join ApartmentInformation on [Room].ApartmentID = [ApartmentInformation].ApartmentID
 select  dbo.ApartmentIDFromName('1','1')
-
 Go
 CREATE FUNCTION RoomsInApartment(@apartmentname varchar(45),@zipcode varchar(5))
 returns table

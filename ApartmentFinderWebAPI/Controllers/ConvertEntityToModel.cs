@@ -14,5 +14,6 @@ namespace ApartmentFinderWebAPI.Controllers
             return new MOD.User(temp.FirstName, temp.LastName, temp.Email, temp.Username, temp.Password);
             
         }
+        
     }
 }
