@@ -14,9 +14,9 @@ namespace ApartmentFinderMVC
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Apartments", action = "Index", id = UrlParameter.Optional }
+                name: "Initial",
+                url: "{action}/{id}",
+                defaults: new { controller = "Main", action = "Initial", id = UrlParameter.Optional }
             );
         }
     }
