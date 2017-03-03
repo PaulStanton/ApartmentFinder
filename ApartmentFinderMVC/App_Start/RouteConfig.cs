@@ -15,7 +15,7 @@ namespace ApartmentFinderMVC
 
             routes.MapRoute(
                 name: "Initial",
-                url: "{action}/{id}",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Main", action = "Initial", id = UrlParameter.Optional }
             );
         }
