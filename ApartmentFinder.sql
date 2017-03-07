@@ -111,12 +111,13 @@ returns table
 AS 
 		Return  Select * From RoomInformation where apartmentID = dbo.ApartmentIDFromName(@apartmentname,@zipcode) And isFilled=0
 Go
---
+
 CREATE FUNCTION UserFavorites(@username varchar(45))
 returns table
 AS 
 	Return Select * From AllUsersFavoritedRooms where username = @username 
 Go
+
 CREATE FUNCTION FavoritedRoom(@RoomNumber varchar(45),@ApartmentName varchar(45), @zipcode varchar(5))
 returns table
 AS 
@@ -138,6 +139,7 @@ returns table
 AS 
 	Return Select * From RoomInformation where [StateName] = @StateName  
 Go
+
 CREATE FUNCTION AvailableRoomsByZip(@zip_code int)
 returns table
 AS 
@@ -223,6 +225,7 @@ BEGIn
 	select @total = Avg(price)From RoomInformation where [ApartmentID] = dbo.ApartmentIDFromName(@apartmentname,@zipcode)
 	return @total
 END
+
 Go
 CREATE FUNCTION AvgRoomCostByZip(@zip_code int)
 Returns money
@@ -267,12 +270,14 @@ CREATE PROCEDURE CreateApartment
 @Street  varchar(45),
 @ContactEmail varchar(45),
 @ContactPhone varchar(45),
-@CityID int
+@CityID int,
+@Picture varchar(100)
 AS
 INSERT INTO Apartment ([ApartmentName],[Street Address],[ContactEmail],
-[ContactPhone],[CityID]) Values (@ApartmentName,@Street,@ContactEmail,
-@ContactPhone, @CityID)
+[ContactPhone],[CityID],[Picture]) Values (@ApartmentName,@Street,@ContactEmail,
+@ContactPhone, @CityID,@Picture)
 GO
+
 CREATE PROCEDURE CreateRoom
 @NumberOfBeds varchar(45),
 @RoomNumber  varchar(45),
