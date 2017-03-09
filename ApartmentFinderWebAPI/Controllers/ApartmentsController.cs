@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ApartmentFinderDAL;
+using MOD = ApartmentFinderWebAPI.Models;
 
 namespace ApartmentFinderWebAPI.Controllers
 {
@@ -18,24 +19,39 @@ namespace ApartmentFinderWebAPI.Controllers
         private ApartmentFinderEntities db = new ApartmentFinderEntities();
 
         // GET: api/Apartments
-        public IQueryable<Apartment> GetApartments()
+        public IEnumerable<MOD.Apartment> GetApartments()
         {
-            var temp = db.AvailableRoomsByCity("Atlanta");
-            foreach (var item in temp)
-                {   
+            List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
+            foreach (var item in db.Apartments)
+                {
+                apartmentList.Add(ConvertEntityToModel.convertApartment(item));
                 }
-            return db.Apartments;
+            return apartmentList;
+        }
+
+        public IEnumerable<MOD.Apartment> GetAvailableApartments(string address)
+        {
+            List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
+            foreach (var item in db.Apartments)
+            {
+                if (item.City.Zip_Code==address)
+                {
+                    apartmentList.Add(ConvertEntityToModel.convertApartment(item));
+                }
+
+            }
+            return apartmentList;
         }
 
         // GET: api/Apartments/
         [ResponseType(typeof(Apartment))]
 
-        public async Task<IHttpActionResult> GetApartment(string address)
+        public async Task<IHttpActionResult> GetApartment(int id)
         {
             // Is it a zip or a city
 
             // if city do this
-            Apartment apartment = await db.Apartments.FindAsync(address);
+            Apartment apartment = await db.Apartments.FindAsync(id);
             if (apartment == null)
             {
                 return NotFound();

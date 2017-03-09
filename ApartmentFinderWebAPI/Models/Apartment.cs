@@ -19,7 +19,12 @@ namespace ApartmentFinderWebAPI.Models
         }
         public Apartment(string apartmentname, string contactEmail, string contactphone, string pictureURL, Address apartment_address, List<Room> roomList)
         {
-
+            this.apartmentname = apartmentname;
+            this.contactemail = contactEmail;
+            this.contactphone = contactphone;
+            this.pictureURL = pictureURL;
+            this.apartment_address = apartment_address;
+            this.roomList = roomList;
         }
 
         public string PictureURL { get { return pictureURL; } set {pictureURL=value; } }
