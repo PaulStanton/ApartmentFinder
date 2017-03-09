@@ -28,7 +28,7 @@ namespace ApartmentFinderWebAPI.Controllers
                 }
             return apartmentList;
         }
-
+        [ActionName("GetApartmentsByAddress")]
         public IEnumerable<MOD.Apartment> GetApartmentsByAddress(string address)
         {
             List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
@@ -43,6 +43,36 @@ namespace ApartmentFinderWebAPI.Controllers
                 }
 
             }
+            return apartmentList;
+        }
+        [ActionName("GetAvailableApartmentsByAddress")]
+        public IEnumerable<MOD.Apartment> GetAvailableApartmentsByAddress(string address)
+        {
+            List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
+            foreach (var item in db.Apartments)
+            {
+                MOD.Apartment tempApartment = new MOD.Apartment();
+                if (address.Contains(item.City.Zip_Code)|| address.Contains(item.City.Name) && address.Contains(item.City.State.StateName))
+                {
+                    tempApartment = ConvertEntityToModel.convertApartment(item);
+                    List<MOD.Room>tempRoomList = tempApartment.RoomList;
+                    for (int i = 0; i < tempApartment.RoomList.Count; i++)
+                    {
+                        if (tempApartment.RoomList[i].IsFilled)
+                        {
+                            tempApartment.RoomList.Remove(tempApartment.RoomList[i]);
+                        }
+                    }
+    
+                        if (tempApartment.RoomList.Count>0)
+                    {
+                        apartmentList.Add(tempApartment);
+                    }
+                    
+                }
+            }
+
+
             return apartmentList;
         }
 
