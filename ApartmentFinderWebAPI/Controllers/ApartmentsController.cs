@@ -20,14 +20,22 @@ namespace ApartmentFinderWebAPI.Controllers
         // GET: api/Apartments
         public IQueryable<Apartment> GetApartments()
         {
+            var temp = db.AvailableRoomsByCity("Atlanta");
+            foreach (var item in temp)
+                {   
+                }
             return db.Apartments;
         }
 
-        // GET: api/Apartments/5
+        // GET: api/Apartments/
         [ResponseType(typeof(Apartment))]
-        public async Task<IHttpActionResult> GetApartment(int id)
+
+        public async Task<IHttpActionResult> GetApartment(string address)
         {
-            Apartment apartment = await db.Apartments.FindAsync(id);
+            // Is it a zip or a city
+
+            // if city do this
+            Apartment apartment = await db.Apartments.FindAsync(address);
             if (apartment == null)
             {
                 return NotFound();

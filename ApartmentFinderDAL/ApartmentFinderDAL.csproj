@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs">
+      <DependentUpon>ApartmentFinder.tt</DependentUpon>
+    </Compile>
     <Compile Include="AllRoomsByCity_Result.cs">
       <DependentUpon>ApartmentFinder.tt</DependentUpon>
     </Compile>
