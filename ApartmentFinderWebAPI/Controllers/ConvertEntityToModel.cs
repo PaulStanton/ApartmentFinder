@@ -17,7 +17,6 @@ namespace ApartmentFinderWebAPI.Controllers
         
         public static MOD.Address convertApartmentAddress(DAL.Apartment temp)
         {
-            
             return new MOD.Address(temp.Street_Address,temp.City.Name,temp.City.Zip_Code,temp.City.State.StateName);
         }
 

@@ -20,10 +20,10 @@ namespace ApartmentFinderWebAPI
                 defaults: new { id = RouteParameter.Optional }
             ); */
             config.Routes.MapHttpRoute(
-                         name: "API Default",
-                          routeTemplate: "api/{controller}/{method}",
-                          defaults: new { method = RouteParameter.Optional }
-                        );
+                name: "API Default",
+                routeTemplate: "api/{controller}/{method}",
+                defaults: new { method = RouteParameter.Optional }
+            );
         }
     }
 }

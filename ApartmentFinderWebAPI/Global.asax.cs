@@ -19,7 +19,7 @@ namespace ApartmentFinderWebAPI
             var rhm = new RequestHeaderMapping("Accept", "text/html",
                 StringComparison.InvariantCultureIgnoreCase, true, "application/json");
                
-            GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings.Add(rhm);
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings.Add(rhm); 
         }
     }
 }
