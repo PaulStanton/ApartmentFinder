@@ -1,0 +1,38 @@
+#companyname{
+  padding-top: 10px;
+  text-align: center;
+  background-image: url("pictures/skyline-towers-apartments-building.jpg");
+  background-color: lightblue;
+  height: 170px;
+}
+
+#signin{
+  text-align: right;
+  padding-right: 10px;
+  bottom: 85;
+}
+
+#searchbar{
+  text-align: center;
+}
+
+#listofapartments{
+  text-align: center;
+}
+
+#apartmentlist{
+  border-style: ridge;
+}
+
+#detailsofapartments{
+  text-align: center;
+}
+
+#googleapi{
+  text-align: center;
+}
+
+body{
+  background-image: url("pictures/skyline-towers-apartments-building.jpg");
+  background-color: lightgrey;
+}
