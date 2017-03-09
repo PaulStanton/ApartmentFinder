@@ -29,12 +29,15 @@ namespace ApartmentFinderWebAPI.Controllers
             return apartmentList;
         }
 
-        public IEnumerable<MOD.Apartment> GetAvailableApartments(string address)
+        public IEnumerable<MOD.Apartment> GetApartmentsByAddress(string address)
         {
             List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
             foreach (var item in db.Apartments)
             {
-                if (item.City.Zip_Code==address)
+                if (address.Contains(item.City.Zip_Code))
+                {
+                    apartmentList.Add(ConvertEntityToModel.convertApartment(item));
+                }else if(address.Contains(item.City.Name) && address.Contains(item.City.State.StateName))
                 {
                     apartmentList.Add(ConvertEntityToModel.convertApartment(item));
                 }
@@ -134,6 +137,7 @@ namespace ApartmentFinderWebAPI.Controllers
             }
             base.Dispose(disposing);
         }
+
 
         private bool ApartmentExists(int id)
         {
