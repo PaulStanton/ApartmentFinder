@@ -25,3 +25,5 @@
 2017-03-09 13:33:40.9336|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
 2017-03-09 13:33:40.9876|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
 >>>>>>> 645d9e0a4021f71fd360ef0f54bed503e1ab52ab
+2017-03-09 13:52:00.6821|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
+2017-03-09 13:52:00.7021|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
