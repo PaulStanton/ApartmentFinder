@@ -12,18 +12,20 @@ namespace ApartmentFinderWebAPI
             // Web API configuration and services
 
             // Web API routes
+            
             config.MapHttpAttributeRoutes();
-/*
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            ); */
-        /*    config.Routes.MapHttpRoute(
-                name: "API Default",
-                routeTemplate: "api/{controller}/{method}",
-                defaults: new { method = RouteParameter.Optional }
-            ); */
+            config.EnableCors();
+            /*config.EnableCors();
+                        config.Routes.MapHttpRoute(
+                            name: "DefaultApi",
+                            routeTemplate: "api/{controller}/{id}",
+                            defaults: new { id = RouteParameter.Optional }
+                        ); */
+            /*    config.Routes.MapHttpRoute(
+                    name: "API Default",
+                    routeTemplate: "api/{controller}/{method}",
+                    defaults: new { method = RouteParameter.Optional }
+                ); */
             config.Routes.MapHttpRoute(
                 name: "ControllerOnly",
                 routeTemplate: "api/{controller}"

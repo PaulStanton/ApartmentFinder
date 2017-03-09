@@ -11,6 +11,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using ApartmentFinderDAL;
 using MOD = ApartmentFinderWebAPI.Models;
+using System.Web.Http.Cors;
 
 namespace ApartmentFinderWebAPI.Controllers
 {
@@ -19,6 +20,7 @@ namespace ApartmentFinderWebAPI.Controllers
         private ApartmentFinderEntities db = new ApartmentFinderEntities();
 
         // GET: api/Apartments
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IEnumerable<MOD.Apartment> GetApartments()
         {
             List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
@@ -28,7 +30,9 @@ namespace ApartmentFinderWebAPI.Controllers
                 }
             return apartmentList;
         }
+
         [ActionName("GetApartmentsByAddress")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IEnumerable<MOD.Apartment> GetApartmentsByAddress(string address)
         {
             List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
@@ -45,7 +49,9 @@ namespace ApartmentFinderWebAPI.Controllers
             }
             return apartmentList;
         }
+        
         [ActionName("GetAvailableApartmentsByAddress")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IEnumerable<MOD.Apartment> GetAvailableApartmentsByAddress(string address)
         {
             List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
@@ -78,7 +84,7 @@ namespace ApartmentFinderWebAPI.Controllers
 
         // GET: api/Apartments/
         [ResponseType(typeof(Apartment))]
-
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public async Task<IHttpActionResult> GetApartment(int id)
         {
             // Is it a zip or a city
@@ -95,6 +101,7 @@ namespace ApartmentFinderWebAPI.Controllers
 
         // PUT: api/Apartments/5
         [ResponseType(typeof(void))]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public async Task<IHttpActionResult> PutApartment(int id, Apartment apartment)
         {
             if (!ModelState.IsValid)
@@ -130,6 +137,7 @@ namespace ApartmentFinderWebAPI.Controllers
 
         // POST: api/Apartments
         [ResponseType(typeof(Apartment))]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public async Task<IHttpActionResult> PostApartment(Apartment apartment)
         {
             if (!ModelState.IsValid)
@@ -145,6 +153,7 @@ namespace ApartmentFinderWebAPI.Controllers
 
         // DELETE: api/Apartments/5
         [ResponseType(typeof(Apartment))]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public async Task<IHttpActionResult> DeleteApartment(int id)
         {
             Apartment apartment = await db.Apartments.FindAsync(id);
@@ -159,6 +168,7 @@ namespace ApartmentFinderWebAPI.Controllers
             return Ok(apartment);
         }
 
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -168,7 +178,7 @@ namespace ApartmentFinderWebAPI.Controllers
             base.Dispose(disposing);
         }
 
-
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         private bool ApartmentExists(int id)
         {
             return db.Apartments.Count(e => e.ApartmentID == id) > 0;

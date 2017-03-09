@@ -42,3 +42,13 @@
 >>>>>>> 0c53a3e50b611250310990c14aed32f71c0dd9ec
 2017-03-09 15:18:38.3256|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
 2017-03-09 15:18:38.3712|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
+2017-03-09 15:56:13.8832|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
+2017-03-09 15:56:13.9143|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
+2017-03-09 16:39:38.9419|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
+2017-03-09 16:39:38.9620|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
+2017-03-09 16:45:44.2539|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
+2017-03-09 16:45:44.2900|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
+2017-03-09 16:54:01.4136|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
+2017-03-09 16:54:01.4326|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
+2017-03-09 16:55:08.6134|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
+2017-03-09 16:55:08.6620|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
