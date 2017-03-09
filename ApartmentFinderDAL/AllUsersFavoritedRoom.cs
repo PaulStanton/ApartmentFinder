@@ -20,6 +20,7 @@ namespace ApartmentFinderDAL
         public string Username { get; set; }
         public int RoomID { get; set; }
         public Nullable<int> NumberOfBeds { get; set; }
+        public Nullable<int> NumberOfBaths { get; set; }
         public string RoomNumber { get; set; }
         public bool isFilled { get; set; }
         public Nullable<decimal> price { get; set; }
