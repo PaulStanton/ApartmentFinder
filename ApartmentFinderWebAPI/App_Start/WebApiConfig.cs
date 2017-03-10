@@ -15,6 +15,7 @@ namespace ApartmentFinderWebAPI
             
             config.MapHttpAttributeRoutes();
             config.EnableCors();
+<<<<<<< HEAD
             /*config.EnableCors();
                         config.Routes.MapHttpRoute(
                             name: "DefaultApi",
@@ -26,6 +27,19 @@ namespace ApartmentFinderWebAPI
                     routeTemplate: "api/{controller}/{method}",
                     defaults: new { method = RouteParameter.Optional }
                 ); */
+=======
+/*
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            ); */
+        /*    config.Routes.MapHttpRoute(
+                name: "API Default",
+                routeTemplate: "api/{controller}/{method}",
+                defaults: new { method = RouteParameter.Optional }
+            ); */
+>>>>>>> e1309c467f5027f320478798a1a956450771ad28
             config.Routes.MapHttpRoute(
                 name: "ControllerOnly",
                 routeTemplate: "api/{controller}"
