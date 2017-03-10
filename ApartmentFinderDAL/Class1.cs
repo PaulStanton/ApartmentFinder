@@ -9,5 +9,6 @@ namespace ApartmentFinderDAL
     public class Class1
     {
         ///;lkjh;lkhjklllldfasdfasdf
+        /////
     }
 }
