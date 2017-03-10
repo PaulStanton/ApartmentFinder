@@ -24,5 +24,6 @@ namespace ApartmentFinderDAL
         public string StateName { get; set; }
         public string ContactEmail { get; set; }
         public string ContactPhone { get; set; }
+        public string Picture { get; set; }
     }
 }
