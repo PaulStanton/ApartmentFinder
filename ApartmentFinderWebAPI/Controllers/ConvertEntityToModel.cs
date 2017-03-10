@@ -31,7 +31,7 @@ namespace ApartmentFinderWebAPI.Controllers
             {
                 tempRooms.Add(convertRoom(item));
             }
-            return new MOD.Apartment(temp.ApartmentName, temp.ContactEmail, temp.ContactPhone, temp.Picture, convertApartmentAddress(temp), tempRooms);
+            return new MOD.Apartment(temp.ApartmentID,temp.ApartmentName, temp.ContactEmail, temp.ContactPhone, temp.Picture, convertApartmentAddress(temp), tempRooms);
         }
 
         

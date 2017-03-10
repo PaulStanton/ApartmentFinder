@@ -13,12 +13,14 @@ namespace ApartmentFinderWebAPI.Models
         private string contactemail;
         private string contactphone;
         private string pictureURL;
+        private int apartmentid;
         public Apartment()
         {
 
         }
-        public Apartment(string apartmentname, string contactEmail, string contactphone, string pictureURL, Address apartment_address, List<Room> roomList)
+        public Apartment(int apartmentid,string apartmentname, string contactEmail, string contactphone, string pictureURL, Address apartment_address, List<Room> roomList)
         {
+            this.apartmentid = apartmentid;
             this.apartmentname = apartmentname;
             this.contactemail = contactEmail;
             this.contactphone = contactphone;
@@ -26,7 +28,7 @@ namespace ApartmentFinderWebAPI.Models
             this.apartment_address = apartment_address;
             this.roomList = roomList;
         }
-
+        public int ApartmentID { get { return apartmentid; } set { apartmentid = value; } }
         public string PictureURL { get { return pictureURL; } set {pictureURL=value; } }
         public string ContactPhone { get {return contactphone; } set { contactphone = value; } }
         public string ContactEmail { get { return contactemail; } set { contactemail = value; } }
