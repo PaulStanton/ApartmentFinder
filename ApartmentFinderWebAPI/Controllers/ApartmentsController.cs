@@ -11,13 +11,14 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using ApartmentFinderDAL;
 using MOD = ApartmentFinderWebAPI.Models;
+using System.Web.Http.Cors;
 
 namespace ApartmentFinderWebAPI.Controllers
 {
     public class ApartmentsController : ApiController
     {
         private ApartmentFinderEntities db = new ApartmentFinderEntities();
-
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         // GET: api/Apartments
         public IEnumerable<MOD.Apartment> GetApartments()
         {
@@ -29,6 +30,7 @@ namespace ApartmentFinderWebAPI.Controllers
             return apartmentList;
         }
         [ActionName("GetApartmentsByAddress")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IEnumerable<MOD.Apartment> GetApartmentsByAddress(string address)
         {
             List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
@@ -46,6 +48,7 @@ namespace ApartmentFinderWebAPI.Controllers
             return apartmentList;
         }
         [ActionName("GetAvailableApartmentsByAddress")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IEnumerable<MOD.Apartment> GetAvailableApartmentsByAddress(string address)
         {
             List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
