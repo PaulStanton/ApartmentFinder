@@ -27,6 +27,7 @@ namespace ApartmentFinderDAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Apartment> Apartments { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
@@ -173,7 +174,7 @@ namespace ApartmentFinderDAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddFavorite", usernameParameter, roomNumberParameter, apartmentNameParameter, zipCodeParameter);
         }
     
-        public virtual int CreateApartment(string apartmentName, string street, string contactEmail, string contactPhone, Nullable<int> cityID)
+        public virtual int CreateApartment(string apartmentName, string street, string contactEmail, string contactPhone, Nullable<int> cityID, string picture)
         {
             var apartmentNameParameter = apartmentName != null ?
                 new ObjectParameter("ApartmentName", apartmentName) :
@@ -195,7 +196,11 @@ namespace ApartmentFinderDAL
                 new ObjectParameter("CityID", cityID) :
                 new ObjectParameter("CityID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateApartment", apartmentNameParameter, streetParameter, contactEmailParameter, contactPhoneParameter, cityIDParameter);
+            var pictureParameter = picture != null ?
+                new ObjectParameter("Picture", picture) :
+                new ObjectParameter("Picture", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateApartment", apartmentNameParameter, streetParameter, contactEmailParameter, contactPhoneParameter, cityIDParameter, pictureParameter);
         }
     
         public virtual int CreateCity(string name, Nullable<int> zipcode, Nullable<int> stateid)
@@ -215,7 +220,7 @@ namespace ApartmentFinderDAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateCity", nameParameter, zipcodeParameter, stateidParameter);
         }
     
-        public virtual int CreateRoom(string numberOfBeds, string roomNumber, Nullable<bool> isFilled, Nullable<decimal> price, Nullable<int> apartmentID)
+        public virtual int CreateRoom(string numberOfBeds, string roomNumber, Nullable<bool> isFilled, Nullable<decimal> price, Nullable<int> zipCode, string apartmentName, Nullable<int> numberOfBaths)
         {
             var numberOfBedsParameter = numberOfBeds != null ?
                 new ObjectParameter("NumberOfBeds", numberOfBeds) :
@@ -233,11 +238,19 @@ namespace ApartmentFinderDAL
                 new ObjectParameter("price", price) :
                 new ObjectParameter("price", typeof(decimal));
     
-            var apartmentIDParameter = apartmentID.HasValue ?
-                new ObjectParameter("ApartmentID", apartmentID) :
-                new ObjectParameter("ApartmentID", typeof(int));
+            var zipCodeParameter = zipCode.HasValue ?
+                new ObjectParameter("ZipCode", zipCode) :
+                new ObjectParameter("ZipCode", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateRoom", numberOfBedsParameter, roomNumberParameter, isFilledParameter, priceParameter, apartmentIDParameter);
+            var apartmentNameParameter = apartmentName != null ?
+                new ObjectParameter("ApartmentName", apartmentName) :
+                new ObjectParameter("ApartmentName", typeof(string));
+    
+            var numberOfBathsParameter = numberOfBaths.HasValue ?
+                new ObjectParameter("NumberOfBaths", numberOfBaths) :
+                new ObjectParameter("NumberOfBaths", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateRoom", numberOfBedsParameter, roomNumberParameter, isFilledParameter, priceParameter, zipCodeParameter, apartmentNameParameter, numberOfBathsParameter);
         }
     
         public virtual int CreateUser(string firstname, string lastname, string username, string password, string email)
@@ -325,7 +338,7 @@ namespace ApartmentFinderDAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RemoveFavorite", usernameParameter, roomNumberParameter, apartmentNameParameter, zipCodeParameter);
         }
     
-        public virtual int UpdateApartment(string oldApartmentName, string oldZipCode, string newApartmentName, string newZipCode, string streetAddress, string contactEmail, string contactPhone)
+        public virtual int UpdateApartment(string oldApartmentName, string oldZipCode, string newApartmentName, string newZipCode, string streetAddress, string contactEmail, string contactPhone, string apartmentPicture)
         {
             var oldApartmentNameParameter = oldApartmentName != null ?
                 new ObjectParameter("OldApartmentName", oldApartmentName) :
@@ -355,10 +368,14 @@ namespace ApartmentFinderDAL
                 new ObjectParameter("ContactPhone", contactPhone) :
                 new ObjectParameter("ContactPhone", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateApartment", oldApartmentNameParameter, oldZipCodeParameter, newApartmentNameParameter, newZipCodeParameter, streetAddressParameter, contactEmailParameter, contactPhoneParameter);
+            var apartmentPictureParameter = apartmentPicture != null ?
+                new ObjectParameter("ApartmentPicture", apartmentPicture) :
+                new ObjectParameter("ApartmentPicture", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateApartment", oldApartmentNameParameter, oldZipCodeParameter, newApartmentNameParameter, newZipCodeParameter, streetAddressParameter, contactEmailParameter, contactPhoneParameter, apartmentPictureParameter);
         }
     
-        public virtual int UpdateRoom(Nullable<int> numberOfBeds, string oldRoomNumber, string newRoomNumber, Nullable<bool> isFilled, Nullable<decimal> price, string apartmentName, string zipCode)
+        public virtual int UpdateRoom(Nullable<int> numberOfBeds, string oldRoomNumber, string newRoomNumber, Nullable<bool> isFilled, Nullable<decimal> price, string apartmentName, string zipCode, Nullable<int> numberOfBaths)
         {
             var numberOfBedsParameter = numberOfBeds.HasValue ?
                 new ObjectParameter("NumberOfBeds", numberOfBeds) :
@@ -388,7 +405,11 @@ namespace ApartmentFinderDAL
                 new ObjectParameter("ZipCode", zipCode) :
                 new ObjectParameter("ZipCode", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateRoom", numberOfBedsParameter, oldRoomNumberParameter, newRoomNumberParameter, isFilledParameter, priceParameter, apartmentNameParameter, zipCodeParameter);
+            var numberOfBathsParameter = numberOfBaths.HasValue ?
+                new ObjectParameter("NumberOfBaths", numberOfBaths) :
+                new ObjectParameter("NumberOfBaths", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateRoom", numberOfBedsParameter, oldRoomNumberParameter, newRoomNumberParameter, isFilledParameter, priceParameter, apartmentNameParameter, zipCodeParameter, numberOfBathsParameter);
         }
     
         public virtual int UpdateUser(string oldUserName, string newUserName, string password, string email, string firstname, string lastname)

@@ -27,6 +27,7 @@ namespace ApartmentFinderDAL
         public string ContactPhone { get; set; }
         public Nullable<int> CityID { get; set; }
         public bool Active { get; set; }
+        public string Picture { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room> Rooms { get; set; }
