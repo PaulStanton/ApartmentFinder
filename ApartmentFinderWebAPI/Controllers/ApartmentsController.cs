@@ -18,7 +18,7 @@ namespace ApartmentFinderWebAPI.Controllers
     public class ApartmentsController : ApiController
     {
         private ApartmentFinderEntities db = new ApartmentFinderEntities();
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        
         // GET: api/Apartments
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IEnumerable<MOD.Apartment> GetApartments()

@@ -1,0 +1,32 @@
+<div>
+    <table ng-model="selectedApartment">
+    <tbody>
+        <tr ng-repeat="apt in apartmentData" ng-controller="frontendCtrl" onclick="select(this)">            
+            <td>
+                <div class= "aptinfo">
+                    <div class="aptname">
+                    {{apt.ApartmentName}}
+                    </div>
+                    <br>
+                    <div "aptaddress">
+                    {{apt.Apartment_Address.Street_Address}},
+                    <br>
+                    {{apt.Apartment_Address.City}}, {{apt.Apartment_Address.State}}, {{apt.Apartment_Address.Zip}}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class = "ng-binding">
+                Phone number: {{apt.ContactPhone}}  
+                </div>
+            </td>
+            <td >
+                <div>
+                   Contact Email: {{apt.ContactEmail}}
+                </div>
+            </td>
+
+        </tr>
+    </tbody>
+    </table>
+</div>

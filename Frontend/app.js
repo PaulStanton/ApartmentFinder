@@ -5,7 +5,7 @@ app.config(function($routeProvider)
     $routeProvider.when
     ('/', 
         {
-            templateUrl: 'views/frontend2.html',
+            templateUrl: 'views/frontend.html',
             controller: 'frontendCtrl'
         }
     )

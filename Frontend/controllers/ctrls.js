@@ -1,9 +1,27 @@
 app.controller('frontendCtrl', function($scope, apartmentFactory){
+    // apartment is the model grabbed from the apartmentFactory's domain
     var successFunction = function(apartment){
-        $scope.name = apartment.data.ApartmentName;
+        $scope.apartment = apartment;
+        $scope.apartmentData = apartment.data;
+        $scope.roomlist = null;
+        // console.log(apartment.data);
 
-        console.log(apartment);
-    }
+        $scope.selectRow = function(){
+            angular.forEach($scope.apartmentData, 
+            function(zip){
+                if(zip.Apartment_Address.Zip == "30605"){
+                    $scope.roomlist = apartment.data.RoomList;
+                    console.log(zip);
+                }
+                return $scope.roomlist
+            }
+            )};
+
+        $scope.email = function(){
+            return ContactEmail;
+        };
+        
+    };
 
     var errorFunction = function(err){
         $scope.apartment = err;
@@ -18,5 +36,5 @@ app.controller('signinCtrl', function($scope){
 });
 
 app.controller('editlistingsCtrl', function($scope){
-
+    $scope.msg = "This is the edit listings in page!";
 });

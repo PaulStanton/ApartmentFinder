@@ -1,10 +1,9 @@
 <HTML ng-app="PAKAF">
   <HEAD>
     <TITLE>P&K Apartment Finder</TITLE>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel='stylesheet'>
     <link href="styles/styles.css" rel='stylesheet'>
-    <!--<link href="styles/bootstrap.min.css" rel='stylesheet'>-->
     
   </HEAD>
 
@@ -12,22 +11,16 @@
     <nav class="navbar navbar-inverse">
       <div class='row'>
         <div class ='col-md-12' id='companyname'>
-          <img src='pictures/P&K_Apartment_Finder_Logo3.png' width="600px" height=150px;>
+          <a href="#/"><img src='pictures/P&K_Apartment_Finder_Logo3.png' width="600px" height=150px;></a>
             <div class ='col-md-12' id='signin'>
-              <button type="button" class='btn btn-success'>Sign In</button>
-              <button type="button" class='btn btn-warning'>Edit Listings</button>
+              <a href="#!/signin"><button type="button" class='btn btn-success'>Sign In</button></a>
+              <a href="#!/editlistings"><button type="button" class='btn btn-warning'>Edit Listings</button></a>
             </div>
         </div>
       </div>
     </nav>
 
-<div>
-        <a href="#/">Home</a>
-        <a href="#!/signin">SignIn</a>
-        <a href="#!/editlistings">EditListings</a>
-    </div>
 
-<div class="row">
     <div class="col-md-12" id='searchbar'>
         <form action="" class="search-form">
             <div class="form-group has-feedback">
@@ -37,24 +30,18 @@
           </div>
         </form>
     </div>
-</div>
 
 
-    <div class='col-md-3' id='listofapartments'>
+
+    <div class='col-md-6' id='listofapartments'>
       List of Apartments
-      <div ng-view></div>
-    </div>
-
-    <div class='col-md-3' id='detailsofapartments'>
-        Details
-        <div id=detaillist>
-        </div>
+      <div ng-view class="ng-listofapartments"></div>
     </div>
 
     <div class='col-md-6' id='googleapi'>
       Location of the Map
-      <div id=mapdiv>
-      </div>
+       
+      <div>{{selectedApartment}}</div>    
     </div>
 <div>
 
@@ -63,5 +50,6 @@
   <script src="app.js"></script>
   <script src="factory.js"></script>
   <script src="controllers/ctrls.js"></script>
+  <script src="js/select.js"></script>
   </BODY>
 </HTML>

@@ -1,6 +1,6 @@
 app.factory('apartmentFactory', function($http){
 
-    var domain = 'http://localhost:50403/api/Apartments/GetApartments';
+    var domain = 'http://ec2-52-88-81-0.us-west-2.compute.amazonaws.com/ApartmentFinderWebAPI_deploy/api/apartments';
 
     var getApartments = function(successCallback, errorCallback){
         $http.get(domain)
