@@ -12,6 +12,7 @@ using System.Web.Http.Description;
 using ApartmentFinderDAL;
 using MOD = ApartmentFinderWebAPI.Models;
 using System.Web.Http.Cors;
+using NUnit.Framework;
 
 namespace ApartmentFinderWebAPI.Controllers
 {

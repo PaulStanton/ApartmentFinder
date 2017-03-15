@@ -1,16 +1,14 @@
-var table = document.getElementsByTagName("table")[0];
-// var tbody = table.getElementsByTagName("tbody")[0];
-
 function select(elem){
 
-if(elem.style.backgroundColor =='pink'){
+var x = document.getElementById("row").innerHTML;
+
+
+if(elem.style.backgroundColor =='lightgreen'){
         elem.style.backgroundColor = '#f1f1f1';
 }
 else{
-    elem.style.backgroundColor='pink'
+    elem.style.backgroundColor='lightgreen'
 }
 
-
-
-console.log(elem);
+console.log(x);
 }

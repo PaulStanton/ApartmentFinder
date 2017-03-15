@@ -1,7 +1,9 @@
-<div>
-    <table ng-model="selectedApartment">
+<div class="panel panel-default">
+    <div>{{apartmentSearch}}</div>
+    
+    <table ng-model="selectedApartment" class="table table-bordered">
     <tbody>
-        <tr ng-repeat="apt in apartmentData" ng-controller="frontendCtrl" onclick="select(this)">            
+        <tr id="row" ng-repeat="apt in apartmentData" ng-controller="frontendCtrl" onclick="select(this)" ng-hide="disappear2">            
             <td>
                 <div class= "aptinfo">
                     <div class="aptname">
@@ -20,13 +22,21 @@
                 Phone number: {{apt.ContactPhone}}  
                 </div>
             </td>
-            <td >
+            <!--<td id="disappear" ng-model="disappear2">
+                <div>
+                Available Rooms:
+                </div>
+                <div ng-repeat="rooms in apt.RoomList">
+                    {{rooms.RoomNumber}}
+                </div>
                 <div>
                    Contact Email: {{apt.ContactEmail}}
                 </div>
-            </td>
+            </td>-->
 
         </tr>
     </tbody>
     </table>
+    <div id="monkey">
+    </div>
 </div>

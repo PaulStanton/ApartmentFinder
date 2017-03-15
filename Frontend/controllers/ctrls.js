@@ -1,10 +1,13 @@
 app.controller('frontendCtrl', function($scope, apartmentFactory){
+    var la = window.location.search;
+    var i = la.indexOf('=');
+    var sreturn = la.substring(i+1, la.length);
+    
     // apartment is the model grabbed from the apartmentFactory's domain
     var successFunction = function(apartment){
         $scope.apartment = apartment;
         $scope.apartmentData = apartment.data;
         $scope.roomlist = null;
-        // console.log(apartment.data);
 
         $scope.selectRow = function(){
             angular.forEach($scope.apartmentData, 
@@ -27,8 +30,8 @@ app.controller('frontendCtrl', function($scope, apartmentFactory){
         $scope.apartment = err;
     };
 
-    apartmentFactory.getApartments(successFunction, errorFunction);
-    
+    apartmentFactory.getApartments(sreturn, successFunction, errorFunction);
+        
 });
 
 app.controller('signinCtrl', function($scope){
