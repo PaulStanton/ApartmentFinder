@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-<div class="panel panel-default">
-    <div>{{apartmentSearch}}</div>
-    
-    <table ng-model="selectedApartment" class="table table-bordered">
-    <tbody>
-        <tr id="row" ng-repeat="apt in apartmentData" ng-controller="frontendCtrl" onclick="select(this)" ng-hide="disappear2">            
-=======
 <div ng-controller = "frontendCtrl">
 <div class = 'col-md-4' id='apartmentList'>
     <table ng-model="selectedApartment" id="apartmentsTable">
     <tbody>
         <tr ng-repeat="apt in apartmentData" ng-click = "select(apt)">            
->>>>>>> 2ff317982247655513874094750ac58027d64c98
             <td>
                 <div class= "aptinfo">
                     <div class="aptname">
@@ -30,32 +21,15 @@
                 Phone number: {{apt.ContactPhone}}  
                 </div>
             </td>
-<<<<<<< HEAD
-            <!--<td id="disappear" ng-model="disappear2">
-                <div>
-                Available Rooms:
-                </div>
-                <div ng-repeat="rooms in apt.RoomList">
-                    {{rooms.RoomNumber}}
-                </div>
-                <div>
-                   Contact Email: {{apt.ContactEmail}}
-                </div>
-            </td>-->
-=======
             <td >
                 <div>
                    Contact Email: {{apt.ContactEmail}}
                 </div>
             </td>
->>>>>>> 2ff317982247655513874094750ac58027d64c98
 
         </tr>
     </tbody>
     </table>
-<<<<<<< HEAD
-    <div id="monkey">
-=======
 </div>
 <div class = 'col-md-4' id='selectedspartment'>
     <center>{{currentApartment.ApartmentName}}</center>
@@ -83,6 +57,5 @@
           &zoom=13
           &key=AIzaSyBGkAVqJAnAL4gk0eoLbtod1YySY8m-HjA" width=400 height =400>
         </iframe> 
->>>>>>> 2ff317982247655513874094750ac58027d64c98
     </div>
 </div>

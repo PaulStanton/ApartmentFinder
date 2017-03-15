@@ -1,19 +1,6 @@
 {
   "name": "project2",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "",
-  "main": "index.js",
-    "scripts": {
-        "dev": "lite-server",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-  "author": "P&K Productions",
-  "license": "ISC",
-  "devDependencies": {
-    "lite-server": "^2.2.2"
-  }
-=======
   "main": "index.js",
   "scripts": {
     "dev": "lite-server",
@@ -25,5 +12,4 @@
     "lite-server": "^2.3.0"
   },
   "description": ""
->>>>>>> 2ff317982247655513874094750ac58027d64c98
 }
