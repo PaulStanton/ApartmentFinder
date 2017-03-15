@@ -1,0 +1,49 @@
+#companyname{
+  padding-top: 10px;
+  text-align: center;
+  background-image: "C:\Users\sk014\Desktop\Revature\Project2\Frontend\pictures";
+  background-color: lightblue;
+  height: 170px;
+}
+
+#signin{
+  text-align: right;
+  padding-right: 10px;
+  bottom: 85;
+}
+
+#searchbar{
+  text-align: center;
+}
+
+#listofapartments{
+  text-align: center;
+}
+
+#apartmentlist{
+  border-style: ridge;
+}
+
+#detailsofapartments{
+  text-align: center;
+}
+
+#googleapi{
+  text-align: center;
+}
+
+body{
+  background-color: lightgrey;
+}
+
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}

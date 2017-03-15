@@ -1,0 +1,45 @@
+<HTML ng-app="PAKAF">
+  <HEAD>
+    <TITLE>P&K Apartment Finder</TITLE>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel='stylesheet'>
+    <link href="styles/styles.css" rel='stylesheet'>
+    
+  </HEAD>
+
+  <BODY>
+    <nav class="navbar navbar-inverse">
+      <div class='row'>
+        <div class ='col-md-12' id='companyname'>
+          <a href="#/"><img src='pictures/P&K_Apartment_Finder_Logo3.png' width="600px" height=150px;></a>
+            <div class ='col-md-12' id='signin'>
+              <a href="#!/signin"><button type="button" class='btn btn-success'>Sign In</button></a>
+              <a href="#!/editlistings"><button type="button" class='btn btn-warning'>Edit Listings</button></a>
+            </div>
+        </div>
+      </div>
+    </nav>
+
+<div ng-controller = 'frontendCtrl'>
+    <div class="col-md-12" id='searchbar'>
+        <form action="" class="search-form">
+            <div class="form-group has-feedback">
+            <label for="search" class="sr-only">Search</label>
+            <input type="text" class="form-control" name="search" id="search" placeholder="Search for Apartment by Name, Zip Code, or Available Rooms">
+              <span class="glyphicon glyphicon-search form-control-feedback"></span>
+          </div>
+        </form>
+    </div>
+    <div ng-view class="ng-listofapartments"></div>
+
+<div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="factory.js"></script>
+  <script src="controllers/ctrls.js"></script>
+  <script src="js/select.js"></script>
+  </BODY>
+</HTML>
