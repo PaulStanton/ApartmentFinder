@@ -20,6 +20,38 @@
       </div>
     </nav>
 
+<<<<<<< HEAD
+    <div ng-controller="frontendCtrl">
+        <div class="col-md-12" id='searchbar'>
+            <form action="" class="search-form">
+                <div class="form-group has-feedback">
+                <label for="search" class="sr-only">Search</label>
+                <input type="text" class="form-control" name="search" id="search" ng-model="apartmentSearch" placeholder="Search for Apartment by Name, Zip Code, or Available Rooms">
+                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </form>
+        </div>
+
+        <div class='col-md-6' id='listofapartments'>
+          List of Apartments
+          <div ng-view class="ng-listofapartments"></div>
+        </div>
+    </div>
+
+    <div class='col-md-6' id='googleapi'>
+      Location of the Map
+      <iframe src="//www.google.com/maps/embed/v1/place?q=1%sixflags%blvd,%jackson,%New%Jersey
+         &zoom=13
+         &key=AIzaSyBGkAVqJAnAL4gk0eoLbtod1YySY8m-HjA" width=600 height =400>
+       </iframe>
+    </div>
+<div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="service.js"></script>
+=======
 <div ng-controller = 'frontendCtrl'>
     <div class="col-md-12" id='searchbar'>
         <form action="" class="search-form">
@@ -38,6 +70,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
   <script src="app.js"></script>
+>>>>>>> 2ff317982247655513874094750ac58027d64c98
   <script src="factory.js"></script>
   <script src="controllers/ctrls.js"></script>
   <script src="js/select.js"></script>
