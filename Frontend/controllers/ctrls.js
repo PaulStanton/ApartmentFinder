@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-app.controller('frontendCtrl', function($scope, apartmentFactory){
-    var la = window.location.search;
-    var i = la.indexOf('=');
-    var sreturn = la.substring(i+1, la.length);
-=======
 
 app.controller('frontendCtrl', function($scope, apartmentFactory){
     var searchedAddress = window.location.search;
 
 
->>>>>>> 2ff317982247655513874094750ac58027d64c98
     
     // apartment is the model grabbed from the apartmentFactory's domain
     var successFunction = function(apartment){
@@ -17,8 +10,6 @@ app.controller('frontendCtrl', function($scope, apartmentFactory){
         $scope.apartmentData = apartment.data;
         $scope.roomlist = null;
 
-<<<<<<< HEAD
-=======
        $scope.currentApartment ='';
    $scope.select = function(elem){
     $scope.currentApartment = elem;
@@ -31,7 +22,6 @@ app.controller('frontendCtrl', function($scope, apartmentFactory){
    }
         // console.log(apartment.data);     
 
->>>>>>> 2ff317982247655513874094750ac58027d64c98
         $scope.selectRow = function(){
             angular.forEach($scope.apartmentData, 
             function(zip){
@@ -52,18 +42,10 @@ app.controller('frontendCtrl', function($scope, apartmentFactory){
     var errorFunction = function(err){
         $scope.apartment = err;
     };
-<<<<<<< HEAD
-
-    apartmentFactory.getApartments(sreturn, successFunction, errorFunction);
-        
-});
-
-=======
     apartmentFactory.getApartments(searchedAddress, successFunction, errorFunction);
 
 });
  
->>>>>>> 2ff317982247655513874094750ac58027d64c98
 app.controller('signinCtrl', function($scope){
     $scope.msg = "This is the sign in page!";
 });

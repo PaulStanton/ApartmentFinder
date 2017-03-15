@@ -1,7 +1,7 @@
 #companyname{
   padding-top: 10px;
   text-align: center;
-  background-image: "C:\Users\sk014\Desktop\Revature\Project2\Frontend\pictures";
+  background-image: url("http://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_1920,h_1080/q_80/2639-4/skyline-towers-apartments-building.jpg");
   background-color: lightblue;
   height: 170px;
 }
@@ -23,7 +23,9 @@
 #apartmentlist{
   border-style: ridge;
 }
-
+#middlerow{
+  background-color: dimgray;
+}
 #detailsofapartments{
   text-align: center;
 }
@@ -46,4 +48,19 @@ table tr:nth-child(odd) {
 }
 table tr:nth-child(even) {
   background-color: #ffffff;
+}
+
+#selectedapartment{
+  border-style: solid;
+  padding-bottom: 20px;
+  border-width: 1px;
+}
+
+#ApartmentPicture{
+  display: block;
+  margin: auto;
+}
+
+#apartmentsTable{
+  width: 100%;
 }
