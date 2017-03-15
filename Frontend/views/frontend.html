@@ -1,0 +1,61 @@
+<div ng-controller = "frontendCtrl">
+<div class = 'col-md-4' id='apartmentList'>
+    <table ng-model="selectedApartment" id="apartmentsTable">
+    <tbody>
+        <tr ng-repeat="apt in apartmentData" ng-click = "select(apt)">            
+            <td>
+                <div class= "aptinfo">
+                    <div class="aptname">
+                    {{apt.ApartmentName}}
+                    </div>
+                    <br>
+                    <div "aptaddress">
+                    {{apt.Apartment_Address.Street_Address}},
+                    <br>
+                    {{apt.Apartment_Address.City}}, {{apt.Apartment_Address.State}}, {{apt.Apartment_Address.Zip}}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class = "ng-binding">
+                Phone number: {{apt.ContactPhone}}  
+                </div>
+            </td>
+            <td >
+                <div>
+                   Contact Email: {{apt.ContactEmail}}
+                </div>
+            </td>
+
+        </tr>
+    </tbody>
+    </table>
+</div>
+<div class = 'col-md-4' id='selectedspartment'>
+    <center>{{currentApartment.ApartmentName}}</center>
+    </br> 
+    <img src="" alt=""id="ApartmentPicture" height=200 width =400>
+    </br>
+    <center>Available Rooms</center>
+ <table id="roomTable">
+    <tbody>
+        <tr ng-repeat="room in currentApartment.RoomList">            
+            <td>
+                <div class = "room information">
+                    Bedrooms:{{room.NumBeds}} Bathrooms: {{room.NumBaths}} RoomNumber: {{room.RoomNumber}} Rent:${{room.Price}}
+                </div>
+            </td>
+
+        </tr>
+    </tbody>
+    </table>  
+
+</div>
+ <div class='col-md-4' id='googleapi'>
+      Location of the Map
+        <iframe id="map" src="//www.google.com/maps/embed/v1/place?q=1%sixflags%blvd,%jackson,%New%Jersey
+          &zoom=13
+          &key=AIzaSyBGkAVqJAnAL4gk0eoLbtod1YySY8m-HjA" width=400 height =400>
+        </iframe> 
+    </div>
+</div>

@@ -405,4 +405,5 @@ AS
 Delete From FavoritedRooms where userID=dbo.GetUserID(@username) and RoomID = dbo.GetRoomID(@ROomNumber,@ApartmentName,@ZipCode)
 
 Select *From [User]
+Select * From [Apartment]
 
