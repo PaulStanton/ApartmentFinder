@@ -22,4 +22,8 @@ app.config(function($routeProvider)
         controller: 'editlistingsCtrl'
     })
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2ff317982247655513874094750ac58027d64c98
 );

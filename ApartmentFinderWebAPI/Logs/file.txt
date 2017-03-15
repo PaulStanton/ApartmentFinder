@@ -72,6 +72,7 @@
 2017-03-10 14:10:54.2604|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
 2017-03-10 14:24:39.6187|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
 2017-03-10 14:24:39.6467|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
+<<<<<<< HEAD
 >>>>>>> e1309c467f5027f320478798a1a956450771ad28
 2017-03-10 14:34:11.2039|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
 2017-03-10 14:34:11.2239|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
@@ -83,3 +84,7 @@
 2017-03-11 17:50:51.7461|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
 2017-03-13 17:24:58.9510|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
 2017-03-13 17:24:58.9881|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
+=======
+2017-03-13 11:35:22.9995|TRACE|ApartmentFinderWebAPI.NLogConfig|web service started
+2017-03-13 11:35:23.0355|INFO|ApartmentFinderWebAPI.NLogConfig|started web service
+>>>>>>> 2ff317982247655513874094750ac58027d64c98

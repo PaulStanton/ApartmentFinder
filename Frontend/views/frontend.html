@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 <div class="panel panel-default">
     <div>{{apartmentSearch}}</div>
     
     <table ng-model="selectedApartment" class="table table-bordered">
     <tbody>
         <tr id="row" ng-repeat="apt in apartmentData" ng-controller="frontendCtrl" onclick="select(this)" ng-hide="disappear2">            
+=======
+<div ng-controller = "frontendCtrl">
+<div class = 'col-md-4' id='apartmentList'>
+    <table ng-model="selectedApartment" id="apartmentsTable">
+    <tbody>
+        <tr ng-repeat="apt in apartmentData" ng-click = "select(apt)">            
+>>>>>>> 2ff317982247655513874094750ac58027d64c98
             <td>
                 <div class= "aptinfo">
                     <div class="aptname">
@@ -22,6 +30,7 @@
                 Phone number: {{apt.ContactPhone}}  
                 </div>
             </td>
+<<<<<<< HEAD
             <!--<td id="disappear" ng-model="disappear2">
                 <div>
                 Available Rooms:
@@ -33,10 +42,47 @@
                    Contact Email: {{apt.ContactEmail}}
                 </div>
             </td>-->
+=======
+            <td >
+                <div>
+                   Contact Email: {{apt.ContactEmail}}
+                </div>
+            </td>
+>>>>>>> 2ff317982247655513874094750ac58027d64c98
 
         </tr>
     </tbody>
     </table>
+<<<<<<< HEAD
     <div id="monkey">
+=======
+</div>
+<div class = 'col-md-4' id='selectedspartment'>
+    <center>{{currentApartment.ApartmentName}}</center>
+    </br> 
+    <img src="" alt=""id="ApartmentPicture" height=200 width =400>
+    </br>
+    <center>Available Rooms</center>
+ <table id="roomTable">
+    <tbody>
+        <tr ng-repeat="room in currentApartment.RoomList">            
+            <td>
+                <div class = "room information">
+                    Bedrooms:{{room.NumBeds}} Bathrooms: {{room.NumBaths}} RoomNumber: {{room.RoomNumber}} Rent:${{room.Price}}
+                </div>
+            </td>
+
+        </tr>
+    </tbody>
+    </table>  
+
+</div>
+ <div class='col-md-4' id='googleapi'>
+      Location of the Map
+        <iframe id="map" src="//www.google.com/maps/embed/v1/place?q=1%sixflags%blvd,%jackson,%New%Jersey
+          &zoom=13
+          &key=AIzaSyBGkAVqJAnAL4gk0eoLbtod1YySY8m-HjA" width=400 height =400>
+        </iframe> 
+>>>>>>> 2ff317982247655513874094750ac58027d64c98
     </div>
 </div>
