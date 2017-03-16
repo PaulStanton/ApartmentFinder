@@ -12,6 +12,8 @@ using System.Web.Http.Description;
 using ApartmentFinderDAL;
 using MOD = ApartmentFinderWebAPI.Models;
 using System.Web.Http.Cors;
+using ApartmentFinderWebAPI;
+using NLog;
 
 namespace ApartmentFinderWebAPI.Controllers
 {
@@ -33,6 +35,7 @@ namespace ApartmentFinderWebAPI.Controllers
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IEnumerable<MOD.Apartment> GetApartmentsByAddress(string address)
         {
+                
             List<MOD.Apartment> apartmentList = new List<MOD.Apartment>();
             foreach (var item in db.Apartments)
             {
@@ -45,6 +48,7 @@ namespace ApartmentFinderWebAPI.Controllers
                 }
 
             }
+            NLogConfig.logger.Log(LogLevel.Info, "Apartments Retrieved with address: " + address);
             return apartmentList;
         }
         [ActionName("GetAvailableApartmentsByAddress")]
